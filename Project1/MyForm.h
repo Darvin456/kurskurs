@@ -603,7 +603,7 @@ private: System::Void trackBar1_Scroll_1(System::Object^ sender, System::EventAr
 private: System::Void toolStripMenuItem2_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void âåðíóòüÊÑòàíäàðòíîéToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	MessageBox::Show("Èñõðäíàÿ òåìà");
+	MessageBox::Show("Èñõîäíàÿ òåìà");
 	groupBox1->BackColor = System::Drawing::Color::White;
 	toolStrip1->BackColor = System::Drawing::Color::White;
 
