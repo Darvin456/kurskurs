@@ -2,6 +2,7 @@
 #include <mmsystem.h>
 #include <msclr/marshal_cppstd.h> 
 #pragma comment(lib, "winmm.lib")
+
 namespace Project1 {
 	using namespace msclr;
 	using namespace System::IO;
@@ -19,16 +20,22 @@ namespace Project1 {
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 	public:
+		String^ loadedfiles = "";
+
 		MyForm(void)
 		{
 			
 			InitializeComponent();
 			AxWMPLib::AxWindowsMediaPlayer^ axWindowsMediaPlayer1 = gcnew AxWMPLib::AxWindowsMediaPlayer();
-			//TODO: добавьте код конструктора
+			
 			
 		}
 	private: System::Windows::Forms::ToolStripMenuItem^ минимализмToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ вернутьКСтандартнойToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripButton^ Справка;
+
+	private: System::Windows::Forms::LinkLabel^ linkLabel2;
+
 
 
 
@@ -110,15 +117,17 @@ namespace Project1 {
 			this->открытьВидеоToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->темыToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->стандартнаяToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->вернутьКСтандартнойToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->минимализмToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->выйтиToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->toolStripLabel2 = (gcnew System::Windows::Forms::ToolStripButton());
+			this->Справка = (gcnew System::Windows::Forms::ToolStripButton());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->toolTip1 = (gcnew System::Windows::Forms::ToolTip(this->components));
 			this->axWindowsMediaPlayer1 = (gcnew AxWMPLib::AxWindowsMediaPlayer());
 			this->linkLabel1 = (gcnew System::Windows::Forms::LinkLabel());
 			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
-			this->вернутьКСтандартнойToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->linkLabel2 = (gcnew System::Windows::Forms::LinkLabel());
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Громкость))->BeginInit();
 			this->toolStrip1->SuspendLayout();
@@ -196,9 +205,9 @@ namespace Project1 {
 			// 
 			// toolStrip1
 			// 
-			this->toolStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+			this->toolStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
 				this->toolStripLabel1,
-					this->toolStripLabel2
+					this->toolStripLabel2, this->Справка
 			});
 			this->toolStrip1->Location = System::Drawing::Point(0, 0);
 			this->toolStrip1->Name = L"toolStrip1";
@@ -221,14 +230,14 @@ namespace Project1 {
 			// загрузитьToolStripMenuItem
 			// 
 			this->загрузитьToolStripMenuItem->Name = L"загрузитьToolStripMenuItem";
-			this->загрузитьToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->загрузитьToolStripMenuItem->Size = System::Drawing::Size(158, 22);
 			this->загрузитьToolStripMenuItem->Text = L"Открыть Аудио";
 			this->загрузитьToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::загрузитьToolStripMenuItem_Click);
 			// 
 			// открытьВидеоToolStripMenuItem
 			// 
 			this->открытьВидеоToolStripMenuItem->Name = L"открытьВидеоToolStripMenuItem";
-			this->открытьВидеоToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->открытьВидеоToolStripMenuItem->Size = System::Drawing::Size(158, 22);
 			this->открытьВидеоToolStripMenuItem->Text = L"Открыть Видео";
 			this->открытьВидеоToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::открытьВидеоToolStripMenuItem_Click);
 			// 
@@ -239,7 +248,7 @@ namespace Project1 {
 					this->вернутьКСтандартнойToolStripMenuItem
 			});
 			this->темыToolStripMenuItem->Name = L"темыToolStripMenuItem";
-			this->темыToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->темыToolStripMenuItem->Size = System::Drawing::Size(158, 22);
 			this->темыToolStripMenuItem->Text = L"Темы";
 			// 
 			// стандартнаяToolStripMenuItem
@@ -249,17 +258,24 @@ namespace Project1 {
 			this->стандартнаяToolStripMenuItem->Text = L"Создать";
 			this->стандартнаяToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::стандартнаяToolStripMenuItem_Click);
 			// 
+			// вернутьКСтандартнойToolStripMenuItem
+			// 
+			this->вернутьКСтандартнойToolStripMenuItem->Name = L"вернутьКСтандартнойToolStripMenuItem";
+			this->вернутьКСтандартнойToolStripMenuItem->Size = System::Drawing::Size(199, 22);
+			this->вернутьКСтандартнойToolStripMenuItem->Text = L"Вернуть к стандартной";
+			this->вернутьКСтандартнойToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::вернутьКСтандартнойToolStripMenuItem_Click);
+			// 
 			// минимализмToolStripMenuItem
 			// 
 			this->минимализмToolStripMenuItem->Name = L"минимализмToolStripMenuItem";
-			this->минимализмToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->минимализмToolStripMenuItem->Size = System::Drawing::Size(158, 22);
 			this->минимализмToolStripMenuItem->Text = L"Минимализм";
 			this->минимализмToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::минимализмToolStripMenuItem_Click);
 			// 
 			// выйтиToolStripMenuItem
 			// 
 			this->выйтиToolStripMenuItem->Name = L"выйтиToolStripMenuItem";
-			this->выйтиToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->выйтиToolStripMenuItem->Size = System::Drawing::Size(158, 22);
 			this->выйтиToolStripMenuItem->Text = L"Выйти";
 			this->выйтиToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::выйтиToolStripMenuItem_Click);
 			// 
@@ -272,6 +288,16 @@ namespace Project1 {
 			this->toolStripLabel2->Size = System::Drawing::Size(86, 22);
 			this->toolStripLabel2->Text = L"О программе";
 			this->toolStripLabel2->Click += gcnew System::EventHandler(this, &MyForm::toolStripLabel2_Click);
+			// 
+			// Справка
+			// 
+			this->Справка->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Text;
+			this->Справка->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Справка.Image")));
+			this->Справка->ImageTransparentColor = System::Drawing::Color::Magenta;
+			this->Справка->Name = L"Справка";
+			this->Справка->Size = System::Drawing::Size(57, 22);
+			this->Справка->Text = L"Справка";
+			this->Справка->Click += gcnew System::EventHandler(this, &MyForm::toolStripButton1_Click);
 			// 
 			// label1
 			// 
@@ -314,17 +340,23 @@ namespace Project1 {
 			this->listBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::listBox1_SelectedIndexChanged);
 			this->listBox1->DoubleClick += gcnew System::EventHandler(this, &MyForm::listBox1_DoubleClick);
 			// 
-			// вернутьКСтандартнойToolStripMenuItem
+			// linkLabel2
 			// 
-			this->вернутьКСтандартнойToolStripMenuItem->Name = L"вернутьКСтандартнойToolStripMenuItem";
-			this->вернутьКСтандартнойToolStripMenuItem->Size = System::Drawing::Size(199, 22);
-			this->вернутьКСтандартнойToolStripMenuItem->Text = L"Вернуть к стандартной";
-			this->вернутьКСтандартнойToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::вернутьКСтандартнойToolStripMenuItem_Click);
+			this->linkLabel2->AutoSize = true;
+			this->linkLabel2->LinkColor = System::Drawing::Color::MediumTurquoise;
+			this->linkLabel2->Location = System::Drawing::Point(454, 23);
+			this->linkLabel2->Name = L"linkLabel2";
+			this->linkLabel2->Size = System::Drawing::Size(112, 13);
+			this->linkLabel2->TabIndex = 7;
+			this->linkLabel2->TabStop = true;
+			this->linkLabel2->Text = L"Очистить Плейлист\?";
+			this->linkLabel2->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &MyForm::linkLabel2_LinkClicked);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
 			this->ClientSize = System::Drawing::Size(882, 395);
+			this->Controls->Add(this->linkLabel2);
 			this->Controls->Add(this->listBox1);
 			this->Controls->Add(this->linkLabel1);
 			this->Controls->Add(this->label1);
@@ -352,8 +384,8 @@ namespace Project1 {
 		}
 #pragma endregion
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+			
 		
-			axWindowsMediaPlayer1->Visible = false;
 			System::Windows::Forms::DialogResult result = MessageBox::Show("Вас приветсвует медиа-плеер ,чтоб продолжить использование нажимите ДА в противном случае нажимите НЕТ", "Соглашение", MessageBoxButtons::YesNo, MessageBoxIcon::Question);
 
 			if (result == System::Windows::Forms::DialogResult::Yes) {
@@ -368,44 +400,45 @@ namespace Project1 {
 	private: System::Void toolStripLabel1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void загрузитьToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-		
+				
 		Играть->Checked = true;
 		OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog();
 		openFileDialog1->Filter = "Медиа-Файлы (*.mp3;*.ogg;*.wav)|*.mp3;*.ogg;*.wav";
 		openFileDialog1->Title = "Укажите медиа-файл";
 		openFileDialog1->Multiselect = true;
-
+		
 		
 
 		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 		{
 			
-			loadedMediaList->Clear();
-
 			
+			listBox1->Items->Clear();
+			loadedMediaList->Clear();
 			for each (String ^ media in openFileDialog1->FileNames)
 			{
 				String^ mediaName = System::IO::Path::GetFileName(media);
-				System::Windows::Forms::DialogResult result = MessageBox::Show("Загружен файл: " + mediaName, "Успех", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
+				loadedfiles += mediaName + "\n";
 				label1->Text = "Сейчас играет: " + mediaName;
 				axWindowsMediaPlayer1->Ctlcontrols->stop();
-				MessageBox::Show("Пожалуйста выбирете ваш Трек/Видео в панели слева и кликните по нему два раза", "Предупреждение");
-			
+				
 				loadedMediaList->Add(media);
-				axWindowsMediaPlayer1->Ctlcontrols->play();
+				
 			}
-
+			MessageBox::Show("Загружены следующие файлы:\n" + loadedfiles, "Успех", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
+			MessageBox::Show("Пожалуйста выбирете ваш Трек/Видео в панели слева и кликните по нему два раза", "Предупреждение");
+			loadedfiles = nullptr;
 			
-			listBox1->Items->Clear(); 
 
 			for (int i = 0; i < loadedMediaList->Count; i++)
 			{
 				String^ file = loadedMediaList[i];
 
 
-				listBox1->Items->Add((i + 1) + ":  " + file);
+				listBox1->Items->Add((i + 1) + "А:  " + file);
+				
 			}
-		
+			
 		}
 		else
 		{
@@ -515,34 +548,37 @@ private: System::Void стандартнаяToolStripMenuItem_Click(System::Object^ sender,
 		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
 		{
 			
-				
+			listBox1->Items->Clear();
 			loadedMediaList->Clear();
 
 
 			for each (String ^ media in openFileDialog1->FileNames)
 			{
 				String^ mediaName = System::IO::Path::GetFileName(media);
-				System::Windows::Forms::DialogResult result = MessageBox::Show("Загружен файл: " + mediaName, "Успех", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
+				
 				label1->Text = "Сейчас играет: " + mediaName;
-				MessageBox::Show("Пожалуйста выбирете ваш Трек/Видео в панели Справа => \nи кликните по нему два раза", "Предупреждение", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
-
+				
+				loadedfiles += mediaName + "\n";
 
 				loadedMediaList->Add(media);
-				axWindowsMediaPlayer1->Ctlcontrols->play();
-				axWindowsMediaPlayer1->Visible = true;
+				
 			}
-
-
-			listBox1->Items->Clear();
+			MessageBox::Show("Загружены следующие файлы:\n" + loadedfiles, "Успех", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
+			MessageBox::Show("Пожалуйста выбирете ваш Трек/Видео в панели Справа => \nи кликните по нему два раза", "Предупреждение", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
+			loadedfiles = nullptr;
+			
 
 			for (int i = 0; i < loadedMediaList->Count; i++)
 			{
 				String^ file = loadedMediaList[i];
 
 			
-				listBox1->Items->Add((i + 1) + " " + file);
+				listBox1->Items->Add((i + 1) + "В: " + file);
+			
 			}
+			
 		}
+	
 		else
 		{
 			PlaySound(TEXT("SystemHand"), NULL, SND_ALIAS | SND_ASYNC);
@@ -603,7 +639,7 @@ private: System::Void trackBar1_Scroll_1(System::Object^ sender, System::EventAr
 private: System::Void toolStripMenuItem2_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void вернутьКСтандартнойToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	MessageBox::Show("Исхдная тема");
+	MessageBox::Show("Исходная тема");
 	groupBox1->BackColor = System::Drawing::Color::White;
 	toolStrip1->BackColor = System::Drawing::Color::White;
 
@@ -623,6 +659,33 @@ private: System::Void вернутьКСтандартнойToolStripMenuItem_Click(System::Object^
 	вернутьКСтандартнойToolStripMenuItem->BackColor = System::Drawing::Color::White;
 	listBox1->BackColor = System::Drawing::Color::White;
 	минимализмToolStripMenuItem ->BackColor= System::Drawing::Color::White;
+}
+	private: System::Void toolStripButton1_Click(System::Object^ sender, System::EventArgs^ e) {
+		try
+		{
+			MessageBox::Show("Вы будете перенаправлены на страницу справки");
+			System::Diagnostics::Process::Start("Help.html");
+		}
+		catch (System::Exception^ ex)
+		{
+			MessageBox::Show("Пожалуйста не трогайте файлы программы", "Пожалуйста, верните файлы на место:(",MessageBoxButtons::OK,MessageBoxIcon::Asterisk);
+			
+		}
+	}
+private: System::Void linkLabel2_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
+	System::Windows::Forms::DialogResult result = MessageBox::Show("Вы уверены?", "Соглашение", MessageBoxButtons::YesNo, MessageBoxIcon::Question);
+
+	if (result == System::Windows::Forms::DialogResult::Yes)
+	{	
+		System::Windows::Forms::DialogResult result = MessageBox::Show("Успешно очищенно!","Успех!", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
+		listBox1->Items->Clear();
+		loadedMediaList->Clear();
+	}
+	else
+	{
+		MessageBox::Show("Ошибка очистки");
+	}
+	
 }
 };
 }
