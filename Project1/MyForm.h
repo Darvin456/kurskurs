@@ -35,6 +35,12 @@ namespace Project1 {
 	private: System::Windows::Forms::ToolStripButton^ Ñïğàâêà;
 
 	private: System::Windows::Forms::LinkLabel^ linkLabel2;
+	private: System::Windows::Forms::ToolStripMenuItem^ ñêîğîñòüToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ x20ToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ x15ToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ íîğìàëüíàÿToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ x075ToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ x050ToolStripMenuItem;
 
 
 
@@ -115,6 +121,12 @@ namespace Project1 {
 			this->toolStripLabel1 = (gcnew System::Windows::Forms::ToolStripSplitButton());
 			this->çàãğóçèòüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->îòêğûòüÂèäåîToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ñêîğîñòüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->x20ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->x15ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->íîğìàëüíàÿToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->x075ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->x050ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->òåìûToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ñòàíäàğòíàÿToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->âåğíóòüÊÑòàíäàğòíîéToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -218,9 +230,10 @@ namespace Project1 {
 			// 
 			// toolStripLabel1
 			// 
-			this->toolStripLabel1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
+			this->toolStripLabel1->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(6) {
 				this->çàãğóçèòüToolStripMenuItem,
-					this->îòêğûòüÂèäåîToolStripMenuItem, this->òåìûToolStripMenuItem, this->ìèíèìàëèçìToolStripMenuItem, this->âûéòèToolStripMenuItem
+					this->îòêğûòüÂèäåîToolStripMenuItem, this->ñêîğîñòüToolStripMenuItem, this->òåìûToolStripMenuItem, this->ìèíèìàëèçìToolStripMenuItem,
+					this->âûéòèToolStripMenuItem
 			});
 			this->toolStripLabel1->Name = L"toolStripLabel1";
 			this->toolStripLabel1->Size = System::Drawing::Size(52, 22);
@@ -230,16 +243,62 @@ namespace Project1 {
 			// çàãğóçèòüToolStripMenuItem
 			// 
 			this->çàãğóçèòüToolStripMenuItem->Name = L"çàãğóçèòüToolStripMenuItem";
-			this->çàãğóçèòüToolStripMenuItem->Size = System::Drawing::Size(158, 22);
+			this->çàãğóçèòüToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->çàãğóçèòüToolStripMenuItem->Text = L"Îòêğûòü Àóäèî";
 			this->çàãğóçèòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::çàãğóçèòüToolStripMenuItem_Click);
 			// 
 			// îòêğûòüÂèäåîToolStripMenuItem
 			// 
 			this->îòêğûòüÂèäåîToolStripMenuItem->Name = L"îòêğûòüÂèäåîToolStripMenuItem";
-			this->îòêğûòüÂèäåîToolStripMenuItem->Size = System::Drawing::Size(158, 22);
+			this->îòêğûòüÂèäåîToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->îòêğûòüÂèäåîToolStripMenuItem->Text = L"Îòêğûòü Âèäåî";
 			this->îòêğûòüÂèäåîToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::îòêğûòüÂèäåîToolStripMenuItem_Click);
+			// 
+			// ñêîğîñòüToolStripMenuItem
+			// 
+			this->ñêîğîñòüToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(5) {
+				this->x20ToolStripMenuItem,
+					this->x15ToolStripMenuItem, this->íîğìàëüíàÿToolStripMenuItem, this->x075ToolStripMenuItem, this->x050ToolStripMenuItem
+			});
+			this->ñêîğîñòüToolStripMenuItem->Name = L"ñêîğîñòüToolStripMenuItem";
+			this->ñêîğîñòüToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->ñêîğîñòüToolStripMenuItem->Text = L"Ñêîğîñòü";
+			this->ñêîğîñòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::ñêîğîñòüToolStripMenuItem_Click);
+			// 
+			// x20ToolStripMenuItem
+			// 
+			this->x20ToolStripMenuItem->Name = L"x20ToolStripMenuItem";
+			this->x20ToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->x20ToolStripMenuItem->Text = L"x2.0";
+			this->x20ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::x20ToolStripMenuItem_Click);
+			// 
+			// x15ToolStripMenuItem
+			// 
+			this->x15ToolStripMenuItem->Name = L"x15ToolStripMenuItem";
+			this->x15ToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->x15ToolStripMenuItem->Text = L"x1.5";
+			this->x15ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::x15ToolStripMenuItem_Click);
+			// 
+			// íîğìàëüíàÿToolStripMenuItem
+			// 
+			this->íîğìàëüíàÿToolStripMenuItem->Name = L"íîğìàëüíàÿToolStripMenuItem";
+			this->íîğìàëüíàÿToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->íîğìàëüíàÿToolStripMenuItem->Text = L"Íîğìàëüíàÿ";
+			this->íîğìàëüíàÿToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::íîğìàëüíàÿToolStripMenuItem_Click);
+			// 
+			// x075ToolStripMenuItem
+			// 
+			this->x075ToolStripMenuItem->Name = L"x075ToolStripMenuItem";
+			this->x075ToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->x075ToolStripMenuItem->Text = L"x0.75";
+			this->x075ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::x075ToolStripMenuItem_Click);
+			// 
+			// x050ToolStripMenuItem
+			// 
+			this->x050ToolStripMenuItem->Name = L"x050ToolStripMenuItem";
+			this->x050ToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->x050ToolStripMenuItem->Text = L"x0.50";
+			this->x050ToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::x050ToolStripMenuItem_Click);
 			// 
 			// òåìûToolStripMenuItem
 			// 
@@ -248,7 +307,7 @@ namespace Project1 {
 					this->âåğíóòüÊÑòàíäàğòíîéToolStripMenuItem
 			});
 			this->òåìûToolStripMenuItem->Name = L"òåìûToolStripMenuItem";
-			this->òåìûToolStripMenuItem->Size = System::Drawing::Size(158, 22);
+			this->òåìûToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->òåìûToolStripMenuItem->Text = L"Òåìû";
 			// 
 			// ñòàíäàğòíàÿToolStripMenuItem
@@ -268,14 +327,14 @@ namespace Project1 {
 			// ìèíèìàëèçìToolStripMenuItem
 			// 
 			this->ìèíèìàëèçìToolStripMenuItem->Name = L"ìèíèìàëèçìToolStripMenuItem";
-			this->ìèíèìàëèçìToolStripMenuItem->Size = System::Drawing::Size(158, 22);
+			this->ìèíèìàëèçìToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->ìèíèìàëèçìToolStripMenuItem->Text = L"Ìèíèìàëèçì";
 			this->ìèíèìàëèçìToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::ìèíèìàëèçìToolStripMenuItem_Click);
 			// 
 			// âûéòèToolStripMenuItem
 			// 
 			this->âûéòèToolStripMenuItem->Name = L"âûéòèToolStripMenuItem";
-			this->âûéòèToolStripMenuItem->Size = System::Drawing::Size(158, 22);
+			this->âûéòèToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->âûéòèToolStripMenuItem->Text = L"Âûéòè";
 			this->âûéòèToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::âûéòèToolStripMenuItem_Click);
 			// 
@@ -676,16 +735,44 @@ private: System::Void linkLabel2_LinkClicked(System::Object^ sender, System::Win
 	System::Windows::Forms::DialogResult result = MessageBox::Show("Âû óâåğåíû?", "Ñîãëàøåíèå", MessageBoxButtons::YesNo, MessageBoxIcon::Question);
 
 	if (result == System::Windows::Forms::DialogResult::Yes)
-	{	
-		System::Windows::Forms::DialogResult result = MessageBox::Show("Óñïåøíî î÷èùåííî!","Óñïåõ!", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
+	{
+		System::Windows::Forms::DialogResult result = MessageBox::Show("Óñïåøíî î÷èùåííî!", "Óñïåõ!", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
 		listBox1->Items->Clear();
 		loadedMediaList->Clear();
+		axWindowsMediaPlayer1->Ctlcontrols->stop();
 	}
 	else
 	{
 		MessageBox::Show("Îøèáêà î÷èñòêè");
 	}
 	
+}
+private: System::Void ñêîğîñòüToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void x15ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (axWindowsMediaPlayer1->settings->isAvailable["Rate"]) {
+		axWindowsMediaPlayer1->settings->rate = 1.5;
+	}
+}
+private: System::Void x20ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (axWindowsMediaPlayer1->settings->isAvailable["Rate"]) {
+		axWindowsMediaPlayer1->settings->rate = 2.0;
+	}
+}
+private: System::Void íîğìàëüíàÿToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (axWindowsMediaPlayer1->settings->isAvailable["Rate"]) {
+		axWindowsMediaPlayer1->settings->rate = 1.0;
+	}
+}
+private: System::Void x075ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (axWindowsMediaPlayer1->settings->isAvailable["Rate"]) {
+		axWindowsMediaPlayer1->settings->rate = 0.75;
+	}
+}
+private: System::Void x050ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (axWindowsMediaPlayer1->settings->isAvailable["Rate"]) {
+		axWindowsMediaPlayer1->settings->rate = 0.5;
+	}
 }
 };
 }
